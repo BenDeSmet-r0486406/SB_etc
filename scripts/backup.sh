@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mkdir -p /var/backups/inotify
+mkdir -p ../../var/backups/inotify
 if echo $1 | grep -qE "\..*\.swp$" ; then #for vim users:)
         exit 0
 fi
