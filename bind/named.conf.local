@@ -1,3 +1,4 @@
+
 //
 // Do any local configuration here
 //
@@ -5,15 +6,8 @@
 // Consider adding the 1918 zones here, if they are not used in your
 // organization
 //include "/etc/bind/zones.rfc1918";
-zone "ns.bendesmet.sb.uclllabs.be" IN {
+zone "ben-desmet.sb.uclllabs.be" {
 	type master;
-	file "/etc/bind/for.ns.bendesmet.sb.uclllabs.be";
-	allow-transfer {193.191.177.207;};
+	file "/etc/bind/zones/db.ben-desmet.sb.uclllabs.be";
+	allow-transfer {193.191.176.254; 193.191.177.4; 193.191.177.254; 193.191.177.139;};
 };
-
-zone "www.bendesmet.sb.uclllabs.be" IN {
-        type master;
-        file "/etc/bind/for.www.bendesmet.sb.uclllabs.be";
-        allow-transfer {193.191.177.207;};
-};
-
