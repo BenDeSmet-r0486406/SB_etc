@@ -1,3 +1,4 @@
+
 # See /usr/share/postfix/main.cf.dist for a commented, more complete version
 
 smtpd_banner = $myhostname ESMTP $mail_name (Debian/GNU)
@@ -8,12 +9,16 @@ append_dot_mydomain = no
 
 # Uncomment the next line to generate "delayed mail" warnings
 #delay_warning_time = 4h
-
 alias_maps = hash:/etc/aliases
 alias_database = hash:/etc/aliases
-mydestination = $myhostname, localhost.$mydomain, localhost
+mydestination = 
 relayhost = 
-mynetworks = 127.0.0.0/8
-inet_interfaces = loopback-only
+mynetworks = 193.191.177.207, 10.0.0.0/8, ben-desmet.sb.uclllabs.be, mx.ben-desmet.sb.uclllabs.be
+inet_interfaces = 193.191.177.207, 2001:6a8:2880:a077::cf
 recipient_delimiter = +
 
+virtual_transport = lmtp:unix:private/dovecot-lmtp
+virtual_mailbox_base = /var/vmail/
+virtual_mailbox_domains = ben-desmet.sb.uclllabs.be
+virtual_mailbox_maps = hash:/etc/postfix/vmailbox
+virtual_alias_maps = hash:/etc/postfix/virtual
