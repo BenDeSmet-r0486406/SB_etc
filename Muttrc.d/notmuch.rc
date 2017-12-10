@@ -1,0 +1,15 @@
+# --------------------------------------------------------------------------
+# FUNCTIONS - shown with an example mapping
+# --------------------------------------------------------------------------
+ 
+# open a different virtual folder
+bind index,pager X change-vfolder
+ 
+# read entire thread of the current message
+bind index,pager + entire-thread
+ 
+# modify (notmuch) tags
+bind index,pager \` modify-labels
+ 
+# generate virtual folder from query
+bind index,pager \eX vfolder-from-query

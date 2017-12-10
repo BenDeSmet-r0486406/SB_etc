@@ -22,3 +22,13 @@ virtual_mailbox_base = /var/vmail/
 virtual_mailbox_domains = ben-desmet.sb.uclllabs.be
 virtual_mailbox_maps = hash:/etc/postfix/vmailbox
 virtual_alias_maps = hash:/etc/postfix/virtual
+
+smtpd_tls_cert_file=/etc/ssl/certs/mailcert.pem
+smtpd_tls_key_file=/etc/ssl/private/mail.key
+smtpd_use_tls=yes
+smtpd_tls_session_cache_database = btree:${data_directory}/smtpd_scache
+smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
+smtpd_tls_security_level=may
+smtpd_tls_protocols = !SSLv2, !SSLv3
+
+local_recipient_maps = proxy:unix:passwd.byname $virtual_alias_map
